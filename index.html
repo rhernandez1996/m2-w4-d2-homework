@@ -73,6 +73,10 @@
         border: 2px solid rgba(83, 78, 58, 0.6);
         border-radius: 0.5em;
       }
+      .post .pic {
+        width: 1em;
+        height: 1em;
+      }
       footer {
         position: absolute;
         bottom: 0;
@@ -87,49 +91,147 @@
     <aside id="leftside"></aside>
     <aside id="rightside"></aside>
     <div id="container">
-      
       <myheader></myheader>
       <main>
         <aside id="photos">
-          <img src="images/chili.jpg" alt="White Chicken Chili" width="180" />
+          <img src="chili.jpg" alt="White Chicken Chili" width="180" />
         </aside>
         <h2 id="mycomments"><mycomments></mycomments></h2>
-        
+
         <section id="blogposts">
-            <div class="post">
-            <img v-bind src="profile.png">
+          <div class="post">
+            <img
+              v-on:click="Hide1=false"
+              src="./images/profile.png"
+              alt=""
+              style="cursor: pointer"
+            />
             <span class="author">{{ obj1.author }}</span> —
             <span class="date">{{ obj1.date }}</span>
             <span class="reply">{{ obj1.reply }}</span>
             <p class="paragraph">{{ obj1.paragraph }}</p>
-          </div> 
+          </div>
+          <div
+            v-if="!Hide1"
+            style="
+              width: 30%;
+              height: auto;
+              background-color: black;
+              border-radius: 15px;
+              position: absolute;
+              margin-left: 20%;
+              margin-top: -200px;
+            "
+          >
+            <p
+              v-on:click="Hide1=true"
+              style="
+                text-align: right;
+                cursor: pointer;
+                color: white;
+                margin-right: 10px;
+              "
+            >
+              x
+            </p>
+            <h3 style="color: white; margin-left: 20px; margin-right: 15px">
+              {{ obj1.author }}
+            </h3>
+            <h4
+              style="
+                color: white;
+                display: inline-block;
+                margin-left: 20px;
+                margin-right: 15px;
+              "
+            >
+              Foodie Level:
+            </h4>
+            <span style="color: white">{{ obj1.foodie }}</span>
+            <h4 style="color: white; margin-left: 20px; margin-right: 15px">
+              Bio:
+            </h4>
+            <p style="color: white; margin-left: 20px; margin-right: 15px">
+              {{ obj1.bio }}
+            </p>
+            <br />
+            <button
+              v-on:click="Hide1=true"
+              style="margin-bottom: 20px; margin-left: 20px; cursor: pointer"
+            >
+              Close
+            </button>
+          </div>
 
           <div class="post">
+            <img
+              v-on:click="Hide2=false"
+              src="./images/profile.png"
+              alt=""
+              style="cursor: pointer"
+            />
             <span class="author">{{ obj2.author }}</span> —
             <span class="date">{{ obj2.date }}</span>
             <span class="reply">{{ obj2.reply }}</span>
-            <p class="paragraph">
-              {{obj2.paragraph}}
-            </p>
+            <p class="paragraph">{{obj2.paragraph}}</p>
           </div>
-
+<div v-if="!Hide2" style="width: 30%; height: auto; background-color: black; 
+                                             border-radius: 15px; position: absolute; margin-left: 20%;
+                                             margin-top: -200px;">
+                    <p v-on:click="Hide2=true" style="text-align: right; cursor: pointer; color: white; margin-right: 10px;">x</p>
+                    <h3 style="color: white; margin-left: 20px; margin-right: 15px;">{{ obj2.author }}</h3>
+                    <h4 style="color: white; display: inline-block; margin-left: 20px; margin-right: 15px;">Foodie Level: </h4>
+                    <span style="color: white; ">{{ obj2.foodie }}</span>
+                    <h4 style="color: white; margin-left: 20px; margin-right: 15px;">Bio: </h4>
+                    <p style="color: white; margin-left: 20px; margin-right: 15px;">{{ obj2.bio }}</p><br>
+                    <button v-on:click="Hide2=true" style="margin-bottom: 20px; margin-left: 20px; cursor: pointer">Close</button>
+                </div>
           <div class="post">
+            <img
+              v-on:click="Hide3=false"
+              src="./images/profile.png"
+              alt=""
+              style="cursor: pointer"
+            />
             <span class="author">{{ obj3.author }}</span> —
             <span class="date">{{ obj3.date }}</span>
             <span class="reply">{{ obj3.reply }}</span>
-            <p class="paragraph">
-              {{obj3.paragraph}}
-            </p>
+            <p class="paragraph">{{obj3.paragraph}}</p>
           </div>
-
+<div v-if="!Hide3" style="width: 30%; height: auto; background-color: black; 
+                                             border-radius: 15px; position: absolute; margin-left: 20%;
+                                             margin-top: -200px;">
+                    <p v-on:click="Hide3=true" style="text-align: right; cursor: pointer; color: white; margin-right: 10px;">x</p>
+                    <h3 style="color: white; margin-left: 20px; margin-right: 15px;">{{ obj3.author }}</h3>
+                    <h4 style="color: white; display: inline-block; margin-left: 20px; margin-right: 15px;">Foodie Level: </h4>
+                    <span style="color: white; ">{{ obj3.foodie }}</span>
+                    <h4 style="color: white; margin-left: 20px; margin-right: 15px;">Bio: </h4>
+                    <p style="color: white; margin-left: 20px; margin-right: 15px;">{{ obj3.bio }}</p><br>
+                    <button v-on:click="Hide3=true" style="margin-bottom: 20px; margin-left: 20px; cursor: pointer">Close</button>
+                </div>
           <div class="post">
+            <img
+              v-on:click="Hide4=false"
+              src="./images/profile.png"
+              alt=""
+              style="cursor: pointer"
+            />
             <span class="author">{{ obj4.author }}</span> —
             <span class="date">{{ obj4.date }}</span>
             <span class="reply">{{ obj4.reply }}</span>
-            <p class="paragraph">
-                {{obj4.paragraph}}
-            </p>
+            <p class="paragraph">{{obj4.paragraph}}</p>
           </div>
+          <div v-if="!Hide4" style="width: 30%; height: auto; background-color: black; 
+                                             border-radius: 15px; position: absolute; margin-left: 20%;
+                                             margin-top: -200px;">
+                    <p v-on:click="Hide4=true" style="text-align: right; cursor: pointer; color: white; margin-right: 10px;">x</p>
+                    <h3 style="color: white; margin-left: 20px; margin-right: 15px;">{{ obj4.author }}</h3>
+                    <h4 style="color: white; display: inline-block; margin-left: 20px; margin-right: 15px;">Foodie Level: </h4>
+                    <span style="color: white; ">{{ obj4.foodie }}</span>
+                    <h4 style="color: white; margin-left: 20px; margin-right: 15px;">Bio: </h4>
+                    <p style="color: white; margin-left: 20px; margin-right: 15px;">{{ obj4.bio }}</p><br>
+                    <button v-on:click="Hide4=true" style="margin-bottom: 20px; margin-left: 20px; cursor: pointer">Close</button>
+                </div>
         </section>
       </main>
 
@@ -137,31 +239,32 @@
     </div>
     <script>
       var blog = {
-        template: '<header><span>Food Blog</span></header>'
-      }
-      Vue.component('myheader',{
-        template : '<header><span>Food Blog</span></header>'
-    });
-    Vue.component('mycomments',{
-        template : '<h2>Comments</h2>'
-    });
-    var vm1 = new Vue({
-        el: '#myheader'
-    });
-    var vm2 = new Vue({
-        el: '#mycomments'
-    });
+        template: "<header><span>Food Blog</span></header>",
+      };
+      Vue.component("myheader", {
+        template: "<header><span>Food Blog</span></header>",
+      });
+      Vue.component("mycomments", {
+        template: "<h2>Comments</h2>",
+      });
+      var vm1 = new Vue({
+        el: "#myheader",
+      });
+      var vm2 = new Vue({
+        el: "#mycomments",
+      });
 
       var container = new Vue({
         el: "#container",
         data: {
           obj1: {
-            // img: "profile.png",
             author: "Brianna",
             date: "February 18, 2021 @ 3:30 pm",
             reply: "REPLY",
             paragraph:
               "Was amazing! My Walmart didn't have coriander in stock and didn't have ground cumin. I used serrano instead of jalapeño. It was just like my favorite tortilla soup from BJs. I am sending this recipe to my family. I want everyone to try it!",
+              foodie: "Novice",
+              bio:"Food enthusiast. Love to cook and experiment. Into only organic, fat free, sugar free stuffs!",
           },
           obj2: {
             author: "LINH",
@@ -169,27 +272,36 @@
             reply: "REPLY",
             paragraph:
               "I just made this soup today and it's so tasty! didn't have corn at home but still turned out very good.  It's a winner!  I made beef chili for my parents; but since my dad has gout he can't eat beef; this white chicken chili is perfect for him.  Thank you Lisa!",
-          },
+          foodie: "Newcomer",
+          bio:"Love food! Grew up with meat and potatoes. Recently venture outside my comfort zone. Loving everything I have been eating so far. Thai is my favorite at this time."
+            },
           obj3: {
             author: "CATHERINE LEONARDO",
             date: "February 13, 2021 @ 12:58 pm",
             reply: "REPLY",
             paragraph:
               "I LOVE this White Chicken Chili! You are right, it is satiating meal—delicious with toasted bread. Refreshingly different taste than any chicken chili I've made in the past. I made it exactly as written and added some chopped zucchini, carrots, and celery. Instead of shredding the chicken, I chopped it into small pieces. It freezes very well. Will be an all-time favorite, for sure.",
-          },
+          foodie: "Mentor",
+          bio: "I have to say I never was the adventurous type until 2 years ago. My boyfriend, who is of Japanese background, exposed me to other cultural food and I have never look back since!"
+            },
           obj4: {
             author: "Brianna",
             date: "February 13, 2021 @ 11:31 am",
             reply: "REPLY",
             paragraph:
               "This recipe is dynamite! My partner usually won't eat beans but he finished the whole pot (darn was hoping to have some for leftovers haha). This is crowd-pleaser that I am going to add to my regular recipe rotation. Thanks so much, Lisa!",
-          },
+              foodie: "Novice",
+              bio: "Food is my passion. So is cooking. I love to experiment and try new things. I have to admit I'm a food whore! Invite me over for dinner and I'll be there!",
+            Hide1: true,
+            Hide2: true,
+            Hide3: true,
+            Hide4: true,
+            },
         },
         components: {
-          'myheader': blog, 
-        }
+          myheader: blog,
+        },
       });
-      
     </script>
   </body>
 </html>
